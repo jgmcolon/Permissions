@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>75e2979f-a8dd-4dfc-b56d-fb4d6726ae85</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Permissions.Application\Permissions.Application.csproj" />
+    <ProjectReference Include="..\Permissions.Infrastructure.indexSearch\Permissions.Infrastructure.indexSearch.csproj" />
+    <ProjectReference Include="..\Permissions.Infrastructure.Streaming\Permissions.Infrastructure.Streaming.csproj" />
+    <ProjectReference Include="..\Permissions.Infrastructure\Permissions.Infrastructure.csproj" />
+    <ProjectReference Include="..\Permissions.Shared\Permissions.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

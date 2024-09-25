@@ -1,0 +1,132 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35201.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.API", "Permissions.API\Permissions.API.csproj", "{39C02EE4-648C-4F87-B939-A3782B54056F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930} = {67E8C13B-A5DC-420F-B5F9-2C9D72D91930}
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22} = {8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Application", "Permissions.Application\Permissions.Application.csproj", "{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F} = {FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Domain", "Permissions.Domain\Permissions.Domain.csproj", "{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Infrastructure", "Permissions.Infrastructure\Permissions.Infrastructure.csproj", "{67E8C13B-A5DC-420F-B5F9-2C9D72D91930}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22} = {8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F} = {FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permissions.tests", "Permissions.tests", "{375E8833-6F70-4279-BF8F-FC3B8F7D1398}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Tests", "Permissions.Tests\Permissions.Tests.csproj", "{6E61F8C6-467A-455E-A299-C91D602D922C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39C02EE4-648C-4F87-B939-A3782B54056F} = {39C02EE4-648C-4F87-B939-A3782B54056F}
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930} = {67E8C13B-A5DC-420F-B5F9-2C9D72D91930}
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22} = {8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F} = {FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permissions.app", "Permissions.app", "{4848FD16-F303-4164-A94F-45F25630AB55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Infrastructure.Streaming", "Permissions.Infrastructure.Streaming\Permissions.Infrastructure.Streaming.csproj", "{4F6B6AF1-FA14-402D-933F-91D05FEFDD76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Infrastructure.indexSearch", "Permissions.Infrastructure.indexSearch\Permissions.Infrastructure.indexSearch.csproj", "{B0056561-EED4-4077-A7FD-0800FE4303FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Permissions.Web", "Permissions.Web", "{63EE716F-E0A7-422F-8498-6F2FB7C228E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker-Compose", "Docker-Compose", "{58773FF5-FD7E-4CC9-8669-246E6FA21C42}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Permissions.Web", "Permissions.Web\", "{6F44ADD0-26E0-4F46-8C1A-115D30776A74}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58956"
+		Debug.AspNetCompiler.PhysicalPath = "Permissions.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58956\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58956"
+		Release.AspNetCompiler.PhysicalPath = "Permissions.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58956\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58956"
+		SlnRelativePath = "Permissions.Web\"
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Permissions.Shared", "Permissions.Shared\Permissions.Shared.csproj", "{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39C02EE4-648C-4F87-B939-A3782B54056F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C02EE4-648C-4F87-B939-A3782B54056F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C02EE4-648C-4F87-B939-A3782B54056F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C02EE4-648C-4F87-B939-A3782B54056F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E61F8C6-467A-455E-A299-C91D602D922C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E61F8C6-467A-455E-A299-C91D602D922C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E61F8C6-467A-455E-A299-C91D602D922C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E61F8C6-467A-455E-A299-C91D602D922C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F6B6AF1-FA14-402D-933F-91D05FEFDD76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6B6AF1-FA14-402D-933F-91D05FEFDD76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6B6AF1-FA14-402D-933F-91D05FEFDD76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6B6AF1-FA14-402D-933F-91D05FEFDD76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0056561-EED4-4077-A7FD-0800FE4303FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0056561-EED4-4077-A7FD-0800FE4303FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0056561-EED4-4077-A7FD-0800FE4303FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0056561-EED4-4077-A7FD-0800FE4303FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F44ADD0-26E0-4F46-8C1A-115D30776A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F44ADD0-26E0-4F46-8C1A-115D30776A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F44ADD0-26E0-4F46-8C1A-115D30776A74}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F44ADD0-26E0-4F46-8C1A-115D30776A74}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39C02EE4-648C-4F87-B939-A3782B54056F} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{8EC7BBAB-EECB-4290-AFEC-CB3CDEC89C22} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{FE5642C0-F9D7-4164-8C0F-3DDB6A44909F} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{67E8C13B-A5DC-420F-B5F9-2C9D72D91930} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{6E61F8C6-467A-455E-A299-C91D602D922C} = {375E8833-6F70-4279-BF8F-FC3B8F7D1398}
+		{4F6B6AF1-FA14-402D-933F-91D05FEFDD76} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{B0056561-EED4-4077-A7FD-0800FE4303FF} = {4848FD16-F303-4164-A94F-45F25630AB55}
+		{6F44ADD0-26E0-4F46-8C1A-115D30776A74} = {63EE716F-E0A7-422F-8498-6F2FB7C228E8}
+		{BEA2CEBA-2581-4BBF-9A20-2DAA80886B6C} = {4848FD16-F303-4164-A94F-45F25630AB55}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D3A23EB-6A5C-4AE3-9801-3CBF624EAE2E}
+	EndGlobalSection
+EndGlobal

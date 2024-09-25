@@ -1,0 +1,129 @@
+version: "3"
+
+services:
+  web:
+    image: permissions-web-${ENV}:latest
+    container_name: web-${ENV}
+    build:
+      context: ./Permissions.Web
+      dockerfile: Dockerfile  
+    ports:
+      - "3000:3000"
+    depends_on: 
+      api:
+        condition: service_started
+
+  api:
+    image: permissions-api-${ENV}:latest
+    container_name: api-${ENV}
+    build:
+      context: .
+      dockerfile: Permissions.API/Dockerfile
+    networks:
+      - permissions-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8090
+      - ConnectionStrings__DefaultConnection=${CONNECTIONSTRINGS}
+      - IndexSearch__Url=http://elasticsearch:9200
+      - Streaming__BootstrapServers=kafka:29092
+    restart: always
+    ports:
+      - "8090:8090"
+    depends_on: 
+       sqlserver:
+        condition: service_started
+       kafka:
+        condition: service_started
+       elasticsearch:
+        condition: service_started
+      
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: ${SQLPWD}
+      ACCEPT_EULA: "Y"
+    networks:
+      - permissions-network
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
+  
+#ElasticSearch
+      
+  kibana:    
+    image: kibana:8.15.1
+    container_name: kibana-${ENV}
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch      
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    networks:
+      - permissions-network
+  
+     
+  elasticsearch:
+    image: elasticsearch:8.15.1
+    container_name: elasticsearch-${ENV}
+    environment:
+      discovery.type: 'single-node'
+      xpack.security.enabled: 'false'      
+      ES_JAVA_OPTS: '-Xmx2g -Xms2g'
+    ports:
+      - "9200:9200"
+    networks:
+      - permissions-network
+
+#kafka
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.2.1
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    networks:
+      - permissions-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.2.1
+    container_name: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+    depends_on:
+      - zookeeper
+    networks:
+      - permissions-network
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    depends_on:
+      - kafka
+    ports:
+      - "8080:8080"
+    environment:
+      - KAFKA_CLUSTERS_0_NAME=local
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
+    networks:
+      - permissions-network
+
+
+networks:
+  permissions-network:
+    driver: bridge
